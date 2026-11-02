@@ -1,4 +1,15 @@
+export class HttpError extends Error {
+  constructor(statusCode, message) {
+    super(message);
+    this.statusCode = statusCode;
+  }
+}
+
 const errorHandler = (error, req, res, next) => {
+  if (error instanceof HttpError) {
+    return res.status(error.statusCode).json({ error: error.message });
+  }
+
   console.error(error);
 
   if (error.type === "entity.parse.failed") {
