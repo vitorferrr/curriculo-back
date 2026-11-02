@@ -5,6 +5,7 @@ import profileRoutes from "./routes/profileRoutes.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import academicExperienceRoutes from "./routes/academicExperienceRoutes.js";
 import professionalExperienceRoutes from "./routes/professionalExperienceRoutes.js";
+import technologyRoutes from "./routes/technologyRoutes.js";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get("/health", (req, res) => {
 app.use("/profiles", profileRoutes);
 app.use("/academic-experiences", academicExperienceRoutes);
 app.use("/professional-experiences", professionalExperienceRoutes);
+app.use("/technologies", technologyRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
