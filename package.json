@@ -6,7 +6,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "db:sync": "node src/config/syncDatabase.js"
   },
   "engines": {
     "node": ">=20"
