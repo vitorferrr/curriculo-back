@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 
+import profileRoutes from "./routes/profileRoutes.js";
 import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "API de Currículo funcionando",
+    message: "API de Currículo no ar!",
   });
 });
 
@@ -22,9 +23,11 @@ app.get("/health", (req, res) => {
   });
 });
 
+app.use("/profiles", profileRoutes);
+
 app.use((req, res) => {
   res.status(404).json({
-    error: "rota não encontrada",
+    error: "Rota não encontrada.",
   });
 });
 
